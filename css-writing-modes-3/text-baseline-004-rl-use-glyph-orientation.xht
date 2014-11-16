@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>CSS Writing Modes Test: text baseline alignment - plain text (central alignment with vertical layout)</title>
+    <link rel="author" title="Hajime Shiozawa" href="mailto:hajime.shiozawa@gmail.com" />
+    <link rel="help" title="4.2. Text Baseline" href="http://www.w3.org/TR/css-writing-modes-3/#text-baselines" />
+    <meta name="assert" content="This test checks the generation of text baseline. When 'writing-mode' is vertical and when 'text-orientation' is 'mixed' or 'upright', then the central baseline is used as the dominant baseline." />
+    <meta name="flags" content="ahem image" />
+    <style type="text/css"><![CDATA[
+      div > p {
+        font: 40px/1 "Ahem";
+        background-color: orange;
+      }
+      img {
+        margin-top: -200px;
+      }
+
+      /* writing-mode property */
+      .vertical-rl {
+        writing-mode: vertical-rl;
+      }
+
+      /* text-orientation property */
+      .use-glyph-orientation {
+        text-orientation: use-glyph-orientation;
+      }
+
+      /* font-size */
+      .half {
+        vertical-align: top;
+        font-size: 0.5em;
+      }
+  ]]></style>
+  </head>
+  <body>
+    <p>Test passes if the <strong>left</strong> edge of black stripe is touching a thin blue line in each 3 orange rectangles and</p>
+
+    <div class="vertical-rl">
+      <p class="use-glyph-orientation"><span class='half'>TOrUPright</span><img src="./support/blue-vert-line-1x220.png" alt="Image download support must be enabled" /></p>
+    </div>
+  </body>
+</html>
